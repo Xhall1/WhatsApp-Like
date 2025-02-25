@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 
-abstract class Mensaje {
+public abstract class Mensaje {
     private String informacion;
     private LocalDate fecha;
     private LocalTime hora;

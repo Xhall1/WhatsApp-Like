@@ -3,7 +3,7 @@ import modelo.usuario.Usuario;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public abstract class MensajeTexto extends Mensaje {
+public class MensajeTexto extends Mensaje {
 
     public MensajeTexto(String informacion, LocalDate fecha, LocalTime hora, Usuario remitente, Usuario receptor) {
         super(informacion, fecha, hora, remitente, receptor);
