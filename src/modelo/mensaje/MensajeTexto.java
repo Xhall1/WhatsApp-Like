@@ -1,7 +1,5 @@
 package modelo.mensaje;
-
 import modelo.usuario.Usuario;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,18 +9,23 @@ public abstract class MensajeTexto extends Mensaje {
         super(informacion, fecha, hora, remitente, receptor);
     }
 
-
     @Override
     public void EnviarMensaje() {
-        System.out.println("Mensaje enviado");
+        System.out.println("Mensaje de texto enviado");
+        setEstado(true);
     }
 
     @Override
     public void EditarMensaje() {
-        System.out.println("Mensaje editado");
+        if (!getEstado()) {
+            System.out.println("Mensaje de texto editado");
+        } else {
+            System.out.println("No se puede editar un mensaje de texto ya enviado");
+        }
     }
 
     @Override
     public void EliminarMensaje() {
-        System.out.println("Mensaje eliminado");}
+        System.out.println("Mensaje de texto eliminado");
+    }
 }
