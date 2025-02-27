@@ -42,16 +42,19 @@ public class ControladorChat {
 
         if (mensajeUsuario.contains("hola") || mensajeUsuario.contains("saludos")) {
             return "¡Hola! ¿En qué puedo ayudarte hoy?";
-        } else if (mensajeUsuario.contains("cómo estás") || mensajeUsuario.contains("qué tal")) {
+        } else if (mensajeUsuario.contains("como estas") || mensajeUsuario.contains("que tal")) {
             return "Estoy bien, gracias. ¿Y tú?";
-        } else if (mensajeUsuario.contains("adios") || mensajeUsuario.contains("chau")) {
+        } else if (mensajeUsuario.contains("adios") || mensajeUsuario.contains("chao")) {
             return "¡Hasta luego! Que tengas un buen día.";
-        } else {
+        } else if (mensajeUsuario.contains("Cuentame tu dia") ||  mensajeUsuario.contains("Como va tu dia")) {
+            return "Muy bien, la verdad. Gracias por preguntar.";
+    }else {
             String[] respuestasGenericas = {
                     "Interesante, cuéntame más.",
                     "No estoy seguro de qué decir a eso.",
                     "¡Qué curioso! ¿Qué opinas tú?",
-                    "Eso suena genial."
+                    "Eso suena genial.",
+                    "Mmm... No se que decir a eso"
             };
             return respuestasGenericas[random.nextInt(respuestasGenericas.length)];
         }

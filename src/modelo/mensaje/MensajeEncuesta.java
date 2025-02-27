@@ -1,9 +1,13 @@
 package modelo.mensaje;
 import modelo.usuario.Usuario;
+
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public abstract class MensajeEncuesta extends Mensaje {
+    public Opcion[] opciones;
+
 
     public MensajeEncuesta(String informacion, LocalDate fecha, LocalTime hora, Usuario remitente, Usuario receptor) {
         super(informacion, fecha, hora, remitente, receptor);
