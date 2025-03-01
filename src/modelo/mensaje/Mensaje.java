@@ -1,11 +1,11 @@
 package modelo.mensaje;
-import modelo.usuario.Usuario;
 
+import modelo.usuario.Usuario;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 
-public abstract class Mensaje {
+public class Mensaje {
     private String informacion;
     private LocalDate fecha;
     private LocalTime hora;
@@ -70,8 +70,11 @@ public abstract class Mensaje {
         this.estado = estado;
     }
 
-    public abstract void EnviarMensaje();
-    public abstract void EliminarMensaje();
-    public abstract void EditarMensaje();
-
+    @Override
+    public String toString() {
+        return "[" + fecha + " " + hora + "] " +
+                remitente.getNombre() + " a " +
+                receptor.getNombre() + ": " +
+                informacion;
+    }
 }

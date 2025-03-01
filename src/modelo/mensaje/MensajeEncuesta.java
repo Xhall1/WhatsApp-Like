@@ -1,35 +1,32 @@
 package modelo.mensaje;
-import modelo.usuario.Usuario;
 
-import java.lang.reflect.Array;
+import modelo.intefaces.*;
+import modelo.usuario.Usuario;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
-public abstract class MensajeEncuesta extends Mensaje {
-    public Opcion[] opciones;
+public class MensajeEncuesta extends Mensaje implements Enviar, Eliminar {
+    private List<Opcion> opciones;
 
-
-    public MensajeEncuesta(String informacion, LocalDate fecha, LocalTime hora, Usuario remitente, Usuario receptor) {
+    public MensajeEncuesta(String informacion, LocalDate fecha, LocalTime hora, Usuario remitente, Usuario receptor, List<Opcion> opciones) {
         super(informacion, fecha, hora, remitente, receptor);
+        this.opciones = opciones;
+    }
+
+    public List<Opcion> getOpciones() {
+        return opciones;
     }
 
     @Override
-    public void EnviarMensaje() {
-        System.out.println("Encuesta enviada");
+    public void enviar() {
+        System.out.println(opciones.size() + " opciones.");
         setEstado(true);
     }
 
     @Override
-    public void EliminarMensaje() {
-        System.out.println("Encuesta eliminada");
+    public void eliminar() {
+        System.out.println("Encuesta eliminada.");
     }
 
-    @Override
-    public void EditarMensaje() {
-        if (!getEstado()) {
-            System.out.println("Encuesta editada");
-        } else {
-            System.out.println("No se puede editar una encuesta ya enviada");
-        }
-    }
 }
